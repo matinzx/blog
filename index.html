@@ -3,113 +3,177 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>رزومه حرفه‌ای من</title>
+  <title>رزومه متین کابلی</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap');
-    body {
-      font-family: 'Vazirmatn', sans-serif;
+    body { font-family: 'Vazirmatn', sans-serif; }
+    .audio-wrapper {
+      position: relative;
+      background-color: #7c3aed;
+      color: white;
+      border-radius: 12px;
+      padding: 12px;
+      text-align: center;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .audio-wrapper:hover {
+      background-color: #6d28d9;
+    }
+    .custom-audio {
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      position: absolute;
+      top: 0;
+      left: 0;
+      cursor: pointer;
     }
   </style>
 </head>
 <body class="bg-gradient-to-r from-purple-100 to-blue-100 dark:from-gray-900 dark:to-gray-800 text-gray-800 dark:text-gray-200 transition-colors duration-500">
   <div class="max-w-7xl mx-auto p-8">
-    <!-- آیکون بالای صفحه -->
-    <div class="flex justify-center mb-6">
-      <img src="https://via.placeholder.com/80" alt="لوگو" class="w-20 h-20 rounded-full shadow-lg">
-    </div>
 
-    <!-- Header -->
-    <header class="text-center mb-16">
-      <img src="https://via.placeholder.com/150" alt="Profile" class="mx-auto rounded-full shadow-lg w-32 h-32 mb-4 hover:scale-110 transition-transform duration-300">
-      <h1 class="text-5xl font-extrabold mb-2 text-purple-700 dark:text-purple-400">نام شما</h1>
-      <p class="text-xl text-gray-600 dark:text-gray-300">توسعه‌دهنده وب | طراح رابط کاربری | عاشق کدنویسی</p>
-      <div class="flex justify-center space-x-6 space-x-reverse mt-6">
-        <a href="#" class="text-blue-500 hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
-          <img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" alt="LinkedIn" class="w-6 h-6 inline">
-        </a>
-        <a href="#" class="text-blue-500 hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
-          <img src="https://cdn-icons-png.flaticon.com/512/733/733609.png" alt="GitHub" class="w-6 h-6 inline">
-        </a>
-        <a href="#" class="text-blue-500 hover:text-blue-700 dark:hover:text-blue-300 transition-colors">
-          <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Email" class="w-6 h-6 inline">
-        </a>
+    <!-- بخش بالای صفحه با 3 مربع جداگانه -->
+    <div class="flex justify-between items-center mb-16 space-x-4 space-x-reverse">
+      <!-- سمت راست: آهنگ‌های مورد علاقه با پلیر خاص -->
+      <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-4 w-1/3 text-center">
+        <h2 class="text-xl font-bold text-purple-600 dark:text-purple-300 mb-3">🎶 آهنگ‌های مورد علاقه</h2>
+        <ul class="space-y-3 text-gray-700 dark:text-gray-200 text-sm">
+          <li class="audio-wrapper">
+            Bohemian Rhapsody - Queen
+            <audio class="custom-audio">
+              <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+            </audio>
+          </li>
+          <li class="audio-wrapper">
+            Shape of You - Ed Sheeran
+            <audio class="custom-audio">
+              <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+            </audio>
+          </li>
+          <li class="audio-wrapper">
+            Hotel California - Eagles
+            <audio class="custom-audio">
+              <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" type="audio/mpeg">
+            </audio>
+          </li>
+        </ul>
       </div>
-    </header>
+      <!-- وسط: عکس و اسم -->
+      <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-4 w-1/3 text-center">
+        <img src="matinkaboli.jpg" alt="Matin Kaboli" class="mx-auto rounded-full shadow-lg w-24 h-24 mb-3">
+        <h1 class="text-2xl font-extrabold text-purple-700 dark:text-purple-400">متین کابلی</h1>
+        <h1 class="text-2xl font-extrabold text-purple-700 dark:text-purple-400">matin kaboli</h1>
+      </div>
+      <!-- سمت چپ: چیزهای مورد علاقه -->
+      <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-4 w-1/3 text-center">
+        <h2 class="text-xl font-bold text-purple-600 dark:text-purple-300 mb-3">🎯 چیزهای مورد علاقه</h2>
+        <ul class="space-y-1 text-gray-700 dark:text-gray-200 text-sm">
+          <li>امنیت سایبری و هک اخلاقی</li>
+          <li>برنامه‌نویسی و توسعه وب</li>
+          <li>مطالعه و یادگیری مداوم</li>
+        </ul>
+      </div>
+    </div>
 
     <!-- درباره من -->
     <section class="mb-16 bg-white dark:bg-gray-700 rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-shadow">
       <h2 class="text-3xl font-bold mb-4 text-purple-600 dark:text-purple-300">درباره من</h2>
-      <p class="leading-relaxed text-gray-700 dark:text-gray-200">من یک توسعه‌دهنده خلاق با علاقه زیاد به طراحی تجربه کاربری و ساخت وبسایت‌های مدرن هستم. تمرکز من روی کد تمیز، طراحی پاسخگو و ایجاد تجربه‌های دیجیتال جذاب است.</p>
+      <p class="leading-relaxed text-gray-700 dark:text-gray-200">
+        در دانشگاه تهران، نقش من به عنوان رهبر تیم امنیت، تقویت دفاع دیجیتال ما است. در کنار تحصیل در مقطع کارشناسی ارشد مهندسی نرم‌افزار، با تسلط بر SQL Injection و تست نفوذ، تهدیدات سایبری پیچیده را مدیریت می‌کنم تا پروتکل‌های امنیتی قدرتمندی برقرار باشد.
+        <br /><br />
+        پیش‌تر در عملیات مرکز داده، تیم ما مقاومت سیستم را ارتقا داد و یکپارچگی داده‌ها را حفظ کرد. گواهینامه‌هایی که در Advanced Java, Security و Linux کسب کرده‌ام، تعهدم را به پیشرو بودن در نوآوری‌های امنیتی و تعالی در حوزه پویا امنیت سایبری نشان می‌دهد.
+      </p>
     </section>
 
-    <!-- مهارت‌ها به سبک داشبورد -->
-    <section class="mb-16">
-      <h2 class="text-3xl font-bold mb-6 text-purple-600 dark:text-purple-300">مهارت‌ها</h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
-        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow hover:shadow-2xl transition-shadow col-span-2">
+    <!-- بخش گواهینامه‌ها و مهارت‌ها -->
+    <div class="flex flex-nowrap justify-between items-stretch mb-16 gap-4">
+      <!-- گواهینامه‌ها -->
+      <div class="flex-1 flex flex-col bg-white dark:bg-gray-700 p-4 rounded-xl shadow hover:shadow-2xl transition-shadow">
+        <h2 class="text-3xl font-bold mb-4 text-purple-600 dark:text-purple-300">گواهینامه‌ها</h2>
+        <ul class="space-y-3 text-gray-700 dark:text-gray-200 flex-grow">
+          <li class="flex items-center space-x-3 space-x-reverse">
+            <img src="linkedin.png" alt="Certificate Icon" class="w-8 h-8">
+            <a href="https://www.linkedin.com/learning/certificates/00f326b8b65fbe856386729ef80070072ef14206826afff6050e93cfd6525d06" class="text-purple-600 dark:text-purple-400 hover:underline">Docker for Developers — LinkedIn</a>
+          </li>
+          <li class="flex items-center space-x-3 space-x-reverse">
+            <img src="linkedin.png" alt="Certificate Icon" class="w-8 h-8">
+            <a href="https://www.linkedin.com/learning/certificates/ab8103577464146d8b4797bbf468ff7656a319f21216c324d04af0471d2464bc" class="text-purple-600 dark:text-purple-400 hover:underline">Git Essential Training — LinkedIn</a>
+          </li>
+          <li class="flex items-center space-x-3 space-x-reverse">
+            <img src="quera.png" alt="Certificate Icon" class="w-8 h-8">
+            <a href="https://quera.org/certificate/DowrdbFv/" class="text-purple-600 dark:text-purple-400 hover:underline">Web Development with PHP — Quera</a>
+          </li>
+          <li class="flex items-center space-x-3 space-x-reverse">
+            <img src="quera.png" alt="Certificate Icon" class="w-8 h-8">
+            <a href="https://quera.org/certificate/oF6Di9Wr/" class="text-purple-600 dark:text-purple-400 hover:underline">Project-Oriented Course In Advanced Java — Quera</a>
+          </li>
+          <li class="flex items-center space-x-3 space-x-reverse">
+            <img src="quera.png" alt="Certificate Icon" class="w-8 h-8">
+            <a href="https://quera.org/certificate/9kVZbh3F/" class="text-purple-600 dark:text-purple-400 hover:underline">Task-Oriented Course In Security — Quera</a>
+          </li>
+        </ul>
+      </div>
+      <!-- مهارت‌ها -->
+      <div class="flex-1 flex flex-col bg-white dark:bg-gray-700 p-4 rounded-xl shadow hover:shadow-2xl transition-shadow">
+        <h2 class="text-3xl font-bold mb-4 text-purple-600 dark:text-purple-300">مهارت‌ها</h2>
+        <div class="flex-grow">
           <canvas id="skillsChart"></canvas>
         </div>
-        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow hover:shadow-2xl transition-shadow">
-          <h3 class="text-xl font-semibold mb-4">آمار کلی</h3>
-          <p class="text-gray-700 dark:text-gray-200 mb-2">مهارت‌های اصلی: ۵</p>
-          <p class="text-gray-700 dark:text-gray-200 mb-2">تجربه عملی: +۳ سال</p>
-          <p class="text-gray-700 dark:text-gray-200">پروژه‌های موفق: +۱۰</p>
-        </div>
       </div>
-    </section>
+    </div>
 
     <!-- تجربه کاری -->
-    <section class="mb-16 bg-white dark:bg-gray-700 rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-shadow">
-      <h2 class="text-3xl font-bold mb-6 text-purple-600 dark:text-purple-300">تجربه کاری</h2>
-      <div class="space-y-6">
-        <div>
-          <h3 class="text-xl font-bold">شرکت A - توسعه‌دهنده فرانت‌اند</h3>
-          <p class="text-gray-500 dark:text-gray-300 mb-2">۲۰۲۲ - اکنون</p>
-          <p class="text-gray-700 dark:text-gray-200">توسعه رابط‌های کاربری پویا با React و Tailwind CSS. همکاری با تیم طراحی برای بهبود تجربه کاربری.</p>
-        </div>
-        <div>
-          <h3 class="text-xl font-bold">شرکت B - کارآموز توسعه وب</h3>
-          <p class="text-gray-500 dark:text-gray-300 mb-2">۲۰۲۱ - ۲۰۲۲</p>
-          <p class="text-gray-700 dark:text-gray-200">ساخت صفحات فرود واکنش‌گرا و بهینه‌سازی برای موتورهای جستجو.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- پروژه‌ها تایم‌لاین افقی -->
     <section class="mb-16">
-      <h2 class="text-3xl font-bold mb-6 text-purple-600 dark:text-purple-300">پروژه‌ها</h2>
+      <h2 class="text-3xl font-bold mb-6 text-purple-600 dark:text-purple-300">تجربه کاری</h2>
       <div class="relative w-full overflow-x-auto">
-        <div class="flex items-center space-x-8 space-x-reverse min-w-max py-4">
+        <div class="flex space-x-8 space-x-reverse min-w-max py-4">
           <div class="flex flex-col items-center text-center">
             <div class="bg-white dark:bg-gray-700 p-4 rounded-full shadow-md mb-2">
-              <img src="https://via.placeholder.com/50" alt="پروژه ۱" class="w-12 h-12">
+              <img src="University_of_Tehran_logo.svg.png" alt="Security Team Lead" class="w-12 h-12">
             </div>
-            <h3 class="text-lg font-semibold">فروشگاه آنلاین</h3>
-            <p class="text-gray-600 dark:text-gray-400 text-sm">React & Tailwind CSS</p>
+            <h3 class="text-lg font-semibold">Security Team Lead</h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm">University of Tehran</p>
           </div>
-          <div class="w-10 h-1 bg-purple-500"></div>
+          <div class="w-10 h-1 bg-purple-500 self-center"></div>
           <div class="flex flex-col items-center text-center">
             <div class="bg-white dark:bg-gray-700 p-4 rounded-full shadow-md mb-2">
-              <img src="https://via.placeholder.com/50" alt="پروژه ۲" class="w-12 h-12">
+              <img src="University_of_Tehran_logo.svg.png" alt="Data Center Ops" class="w-12 h-12">
             </div>
-            <h3 class="text-lg font-semibold">مدیریت وظایف</h3>
-            <p class="text-gray-600 dark:text-gray-400 text-sm">Node.js & MongoDB</p>
-          </div>
-          <div class="w-10 h-1 bg-purple-500"></div>
-          <div class="flex flex-col items-center text-center">
-            <div class="bg-white dark:bg-gray-700 p-4 rounded-full shadow-md mb-2">
-              <img src="https://via.placeholder.com/50" alt="پروژه ۳" class="w-12 h-12">
-            </div>
-            <h3 class="text-lg font-semibold">وبلاگ شخصی</h3>
-            <p class="text-gray-600 dark:text-gray-400 text-sm">Next.js & Minimal Design</p>
+            <h3 class="text-lg font-semibold">Data Center Ops Manager</h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm">University of Tehran</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- تماس با من -->
+    <!-- توضیح کلی درباره تجربه کاری -->
+    <section class="mb-16 bg-white dark:bg-gray-700 rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-shadow">
+      <h2 class="text-3xl font-bold mb-4 text-purple-600 dark:text-purple-300">خلاصه‌ای از تجربیات کاری من</h2>
+      <p class="leading-relaxed text-gray-700 dark:text-gray-200">
+        شرکت <strong>سامانه هوشمند کاربردی سمیع دانشگاه تهران</strong> در زمینه ارائه خدمات زیرساختی، مدیریت سیستم‌ها و توسعه راهکارهای هوشمند فعالیت دارد. این شرکت در پروژه‌های کلان دولتی و سازمانی حضور مؤثری داشته و نقش کلیدی در پشتیبانی و بهینه‌سازی زیرساخت‌های فناوری اطلاعات ایفا می‌کند.
+        <br /><br />
+        برخی از پروژه‌های مهم این شرکت شامل موارد زیر است:
+        <br /><br />
+        <strong>پشتیبانی از زیرساخت‌های سیستمی (Systems Infrastructure Support – Part-time):</strong> شامل نگهداری، بهینه‌سازی و پشتیبانی از سیستم‌های فناوری اطلاعات در سازمان‌ها و نهادهای مختلف.
+        <br />
+        <strong>سامانه سجام (قوه قضاییه):</strong> سامانه‌ای یکپارچه برای جمع‌آوری، مدیریت و پردازش اطلاعات حقوقی، با هدف بهبود دسترسی به داده‌ها و تسهیل فرآیندهای قضایی.
+        <br />
+        <strong>بیتا (بستر تبادل یکپارچه اطلاعات – وزارت اقتصاد):</strong> پلتفرمی جامع برای تبادل و هماهنگی داده‌های اقتصادی بین نهادهای دولتی و خصوصی، با هدف افزایش شفافیت و کارایی مدیریت اقتصادی.
+        <br />
+        <strong>مدیریت سرویس‌های گمرک، باسکول و پلمپ:</strong> سامانه‌های هوشمند برای نظارت، مدیریت و پردازش اطلاعات مربوط به گمرک و حمل‌ونقل، به منظور افزایش امنیت و کاهش تخلفات.
+        <br />
+        <strong>ERPهای سازمان اقتصادی کوثر:</strong> سیستم‌های برنامه‌ریزی منابع سازمانی برای بهینه‌سازی فرآیندهای مالی، لجستیکی و مدیریتی در این مجموعه اقتصادی.
+        <br /><br />
+        این شرکت با تمرکز بر بهبود زیرساخت‌های فناوری اطلاعات، نقشی محوری در تحول دیجیتال و یکپارچه‌سازی داده‌ها در نهادهای دولتی و سازمان‌های بزرگ کشور ایفا می‌کند.
+      </p>
+      
+    </section>
+
+    <!-- فوتر -->
     <footer class="text-center text-gray-600 dark:text-gray-300 pt-8 border-t dark:border-gray-600">
       <p class="mb-2">با من در تماس باشید 🌟</p>
       <a href="mailto:your.email@example.com" class="text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-200 transition-colors">your.email@example.com</a>
@@ -117,52 +181,40 @@
   </div>
 
   <script>
-    const ctx = document.getElementById('skillsChart').getContext('2d');
-    new Chart(ctx, {
-      type: 'bar',
-      data: {
-        labels: ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js'],
-        datasets: [{
-          label: 'مهارت‌ها',
-          data: [90, 85, 80, 75, 70],
-          backgroundColor: [
-            'rgba(168, 85, 247, 0.6)',
-            'rgba(79, 70, 229, 0.6)',
-            'rgba(16, 185, 129, 0.6)',
-            'rgba(244, 63, 94, 0.6)',
-            'rgba(251, 191, 36, 0.6)'
-          ],
-          borderRadius: 5,
-          borderSkipped: false
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            display: false
-          }
+    // نمودار مهارت‌ها
+    const ctx = document.getElementById('skillsChart')?.getContext('2d');
+    if(ctx) {
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Linux', 'DevOps', 'Security', 'JavaScript', 'infrastructure'],
+          datasets: [{
+            label: 'مهارت‌ها',
+            data: [60, 60, 50, 70, 60],
+            backgroundColor: 'rgba(168, 85, 247, 0.3)',
+            borderColor: 'rgba(168, 85, 247, 1)',
+            borderWidth: 2
+          }]
         },
-        scales: {
-          y: {
-            beginAtZero: true,
-            ticks: {
-              color: '#666'
-            },
-            grid: {
-              color: '#444'
-            }
-          },
-          x: {
-            ticks: {
-              color: '#666'
-            },
-            grid: {
-              display: false
-            }
-          }
+        options: {
+          responsive: true,
+          plugins: { legend: { display: false } },
+          scales: { r: { ticks: { backdropColor: 'transparent', color: '#666' }, grid: { color: '#888' } } }
         }
-      }
+      });
+    }
+
+    // برای کلیک روی wrapper آهنگ
+    document.querySelectorAll('.audio-wrapper').forEach(wrapper => {
+      wrapper.addEventListener('click', () => {
+        const audio = wrapper.querySelector('audio');
+        if (audio.paused) {
+          document.querySelectorAll('audio').forEach(a => a.pause());
+          audio.play();
+        } else {
+          audio.pause();
+        }
+      });
     });
   </script>
 </body>
