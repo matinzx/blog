@@ -18,18 +18,14 @@
       text-align: center;
       overflow: hidden;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
     .audio-wrapper:hover {
       background-color: #6d28d9;
     }
-    .custom-audio {
-      width: 100%;
-      height: 100%;
-      opacity: 0;
-      position: absolute;
-      top: 0;
-      left: 0;
-      cursor: pointer;
+    /* وقتی آیتم فعال است، رنگ پس‌زمینه تغییر می‌کند */
+    .audio-wrapper.active {
+      background-color: #6d28d9;
     }
   </style>
 </head>
@@ -41,32 +37,34 @@
       <!-- سمت راست: آهنگ‌های مورد علاقه با پلیر خاص -->
       <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-4 w-1/3 text-center">
         <h2 class="text-xl font-bold text-purple-600 dark:text-purple-300 mb-3">🎶 آهنگ‌های مورد علاقه</h2>
+        <!-- در اینجا برای سادگی من فقط از متن استفاده می‌کنیم و تگ‌های audio حذف شده‌اند -->
         <ul class="space-y-3 text-gray-700 dark:text-gray-200 text-sm">
-          <li class="audio-wrapper">
-            Bohemian Rhapsody - Queen
-            <audio class="custom-audio">
-              <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-            </audio>
+          <li class="audio-wrapper" data-src="/music-fav\1970520895.mp3">
+            Dorcci Ghatle Amd
           </li>
-          <li class="audio-wrapper">
-            Shape of You - Ed Sheeran
-            <audio class="custom-audio">
-              <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
-            </audio>
+          <li class="audio-wrapper" data-src="/music-fav/arown_-_ghargh.mp3">
+            arown_-_ghargh
           </li>
-          <li class="audio-wrapper">
-            Hotel California - Eagles
-            <audio class="custom-audio">
-              <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" type="audio/mpeg">
-            </audio>
+          <li class="audio-wrapper" data-src="/music-fav/balthazar_bunker.mp3">
+            balthazar_bunker
           </li>
         </ul>
       </div>
-      <!-- وسط: عکس و اسم -->
+      <!-- وسط: عکس و اسم + پلیر زیر اسم -->
       <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-4 w-1/3 text-center">
         <img src="matinkaboli.jpg" alt="Matin Kaboli" class="mx-auto rounded-full shadow-lg w-24 h-24 mb-3">
         <h1 class="text-2xl font-extrabold text-purple-700 dark:text-purple-400">متین کابلی</h1>
         <h1 class="text-2xl font-extrabold text-purple-700 dark:text-purple-400">matin kaboli</h1>
+        <!-- پلیر زیر اسم -->
+        <div class="mt-4">
+          <button id="playPauseButton" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full transition transform hover:scale-105">
+            ▶️ پخش موزیک
+          </button>
+          <button id="nextButton" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full transition transform hover:scale-105 ml-2">
+            ⏭ بعدی
+          </button>
+          <audio id="centralAudio" class="hidden"></audio>
+        </div>
       </div>
       <!-- سمت چپ: چیزهای مورد علاقه -->
       <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-4 w-1/3 text-center">
@@ -181,7 +179,7 @@
   </div>
 
   <script>
-    // نمودار مهارت‌ها
+    // رسم نمودار مهارت‌ها
     const ctx = document.getElementById('skillsChart')?.getContext('2d');
     if(ctx) {
       new Chart(ctx, {
@@ -204,17 +202,64 @@
       });
     }
 
-    // برای کلیک روی wrapper آهنگ
-    document.querySelectorAll('.audio-wrapper').forEach(wrapper => {
-      wrapper.addEventListener('click', () => {
-        const audio = wrapper.querySelector('audio');
-        if (audio.paused) {
-          document.querySelectorAll('audio').forEach(a => a.pause());
-          audio.play();
+    // پلیر مرکزی و کنترل لیست آهنگ‌ها
+    const playlistItems = document.querySelectorAll('.audio-wrapper');
+    const centralAudio = document.getElementById('centralAudio');
+    const playPauseButton = document.getElementById('playPauseButton');
+    const nextButton = document.getElementById('nextButton');
+
+    // آرایه‌ای از مسیرهای آهنگ از data-src هر آیتم
+    let currentTrackIndex = 0;
+    const tracks = Array.from(playlistItems).map(item => item.getAttribute('data-src'));
+
+    function updateActiveTrack() {
+      playlistItems.forEach((item, index) => {
+        if(index === currentTrackIndex) {
+          item.classList.add('active');
         } else {
-          audio.pause();
+          item.classList.remove('active');
         }
       });
+    }
+
+    function playTrack(index) {
+      if(index < 0 || index >= tracks.length) return;
+      currentTrackIndex = index;
+      centralAudio.src = tracks[currentTrackIndex];
+      centralAudio.play();
+      playPauseButton.innerHTML = '⏸️ توقف موزیک';
+      updateActiveTrack();
+    }
+
+    // وقتی روی یک آیتم از لیست کلیک می‌شود
+    playlistItems.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        playTrack(index);
+      });
+    });
+
+    // کنترل دکمه پخش/توقف
+    playPauseButton.addEventListener('click', () => {
+      if(centralAudio.paused) {
+        centralAudio.play();
+        playPauseButton.innerHTML = '⏸️ توقف موزیک';
+      } else {
+        centralAudio.pause();
+        playPauseButton.innerHTML = '▶️ پخش موزیک';
+      }
+      updateActiveTrack();
+    });
+
+    // دکمه آهنگ بعدی
+    nextButton.addEventListener('click', () => {
+      let nextIndex = (currentTrackIndex + 1) % tracks.length;
+      playTrack(nextIndex);
+    });
+
+    // هنگامی که آهنگ به پایان رسید، آهنگ بعدی پخش شود
+    centralAudio.addEventListener('ended', () => {
+      let nextIndex = (currentTrackIndex + 1) % tracks.length;
+      playTrack(nextIndex);
     });
   </script>
 </body>
