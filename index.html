@@ -1,265 +1,0 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>رزومه متین کابلی</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap');
-    body { font-family: 'Vazirmatn', sans-serif; }
-    .audio-wrapper {
-      position: relative;
-      background-color: #7c3aed;
-      color: white;
-      border-radius: 12px;
-      padding: 12px;
-      text-align: center;
-      overflow: hidden;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    .audio-wrapper:hover {
-      background-color: #6d28d9;
-    }
-    /* وقتی آیتم فعال است، رنگ پس‌زمینه تغییر می‌کند */
-    .audio-wrapper.active {
-      background-color: #6d28d9;
-    }
-  </style>
-</head>
-<body class="bg-gradient-to-r from-purple-100 to-blue-100 dark:from-gray-900 dark:to-gray-800 text-gray-800 dark:text-gray-200 transition-colors duration-500">
-  <div class="max-w-7xl mx-auto p-8">
-
-    <!-- بخش بالای صفحه با 3 مربع جداگانه -->
-    <div class="flex justify-between items-center mb-16 space-x-4 space-x-reverse">
-      <!-- سمت راست: آهنگ‌های مورد علاقه با پلیر خاص -->
-      <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-4 w-1/3 text-center">
-        <h2 class="text-xl font-bold text-purple-600 dark:text-purple-300 mb-3">🎶 آهنگ‌های مورد علاقه</h2>
-        <!-- در اینجا برای سادگی من فقط از متن استفاده می‌کنیم و تگ‌های audio حذف شده‌اند -->
-        <ul class="space-y-3 text-gray-700 dark:text-gray-200 text-sm">
-          <li class="audio-wrapper" data-src="/music-fav/1970520895.mp3">
-            Dorcci Ghatle Amd
-          </li>
-          <li class="audio-wrapper" data-src="/music-fav/arown_-_ghargh.mp3">
-            arown_-_ghargh
-          </li>
-          <li class="audio-wrapper" data-src="/music-fav/balthazar_bunker.mp3">
-            balthazar_bunker
-          </li>
-        </ul>
-      </div>
-      <!-- وسط: عکس و اسم + پلیر زیر اسم -->
-      <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-4 w-1/3 text-center">
-        <img src="matinkaboli.jpg" alt="Matin Kaboli" class="mx-auto rounded-full shadow-lg w-24 h-24 mb-3">
-        <h1 class="text-2xl font-extrabold text-purple-700 dark:text-purple-400">متین کابلی</h1>
-        <h1 class="text-2xl font-extrabold text-purple-700 dark:text-purple-400">matin kaboli</h1>
-        <!-- پلیر زیر اسم -->
-        <div class="mt-4">
-          <button id="playPauseButton" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full transition transform hover:scale-105">
-            ▶️ پخش موزیک
-          </button>
-          <button id="nextButton" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-full transition transform hover:scale-105 ml-2">
-            ⏭ بعدی
-          </button>
-          <audio id="centralAudio" class="hidden"></audio>
-        </div>
-      </div>
-      <!-- سمت چپ: چیزهای مورد علاقه -->
-      <div class="bg-white dark:bg-gray-700 rounded-xl shadow-lg p-4 w-1/3 text-center">
-        <h2 class="text-xl font-bold text-purple-600 dark:text-purple-300 mb-3">🎯 چیزهای مورد علاقه</h2>
-        <ul class="space-y-1 text-gray-700 dark:text-gray-200 text-sm">
-          <li>امنیت سایبری و هک اخلاقی</li>
-          <li>برنامه‌نویسی و توسعه وب</li>
-          <li>مطالعه و یادگیری مداوم</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- درباره من -->
-    <section class="mb-16 bg-white dark:bg-gray-700 rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-shadow">
-      <h2 class="text-3xl font-bold mb-4 text-purple-600 dark:text-purple-300">درباره من</h2>
-      <p class="leading-relaxed text-gray-700 dark:text-gray-200">
-        در دانشگاه تهران، نقش من به عنوان رهبر تیم امنیت، تقویت دفاع دیجیتال ما است. در کنار تحصیل در مقطع کارشناسی ارشد مهندسی نرم‌افزار، با تسلط بر SQL Injection و تست نفوذ، تهدیدات سایبری پیچیده را مدیریت می‌کنم تا پروتکل‌های امنیتی قدرتمندی برقرار باشد.
-        <br /><br />
-        پیش‌تر در عملیات مرکز داده، تیم ما مقاومت سیستم را ارتقا داد و یکپارچگی داده‌ها را حفظ کرد. گواهینامه‌هایی که در Advanced Java, Security و Linux کسب کرده‌ام، تعهدم را به پیشرو بودن در نوآوری‌های امنیتی و تعالی در حوزه پویا امنیت سایبری نشان می‌دهد.
-      </p>
-    </section>
-
-    <!-- بخش گواهینامه‌ها و مهارت‌ها -->
-    <div class="flex flex-nowrap justify-between items-stretch mb-16 gap-4">
-      <!-- گواهینامه‌ها -->
-      <div class="flex-1 flex flex-col bg-white dark:bg-gray-700 p-4 rounded-xl shadow hover:shadow-2xl transition-shadow">
-        <h2 class="text-3xl font-bold mb-4 text-purple-600 dark:text-purple-300">گواهینامه‌ها</h2>
-        <ul class="space-y-3 text-gray-700 dark:text-gray-200 flex-grow">
-          <li class="flex items-center space-x-3 space-x-reverse">
-            <img src="linkedin.png" alt="Certificate Icon" class="w-8 h-8">
-            <a href="https://www.linkedin.com/learning/certificates/00f326b8b65fbe856386729ef80070072ef14206826afff6050e93cfd6525d06" class="text-purple-600 dark:text-purple-400 hover:underline">Docker for Developers — LinkedIn</a>
-          </li>
-          <li class="flex items-center space-x-3 space-x-reverse">
-            <img src="linkedin.png" alt="Certificate Icon" class="w-8 h-8">
-            <a href="https://www.linkedin.com/learning/certificates/ab8103577464146d8b4797bbf468ff7656a319f21216c324d04af0471d2464bc" class="text-purple-600 dark:text-purple-400 hover:underline">Git Essential Training — LinkedIn</a>
-          </li>
-          <li class="flex items-center space-x-3 space-x-reverse">
-            <img src="quera.png" alt="Certificate Icon" class="w-8 h-8">
-            <a href="https://quera.org/certificate/DowrdbFv/" class="text-purple-600 dark:text-purple-400 hover:underline">Web Development with PHP — Quera</a>
-          </li>
-          <li class="flex items-center space-x-3 space-x-reverse">
-            <img src="quera.png" alt="Certificate Icon" class="w-8 h-8">
-            <a href="https://quera.org/certificate/oF6Di9Wr/" class="text-purple-600 dark:text-purple-400 hover:underline">Project-Oriented Course In Advanced Java — Quera</a>
-          </li>
-          <li class="flex items-center space-x-3 space-x-reverse">
-            <img src="quera.png" alt="Certificate Icon" class="w-8 h-8">
-            <a href="https://quera.org/certificate/9kVZbh3F/" class="text-purple-600 dark:text-purple-400 hover:underline">Task-Oriented Course In Security — Quera</a>
-          </li>
-        </ul>
-      </div>
-      <!-- مهارت‌ها -->
-      <div class="flex-1 flex flex-col bg-white dark:bg-gray-700 p-4 rounded-xl shadow hover:shadow-2xl transition-shadow">
-        <h2 class="text-3xl font-bold mb-4 text-purple-600 dark:text-purple-300">مهارت‌ها</h2>
-        <div class="flex-grow">
-          <canvas id="skillsChart"></canvas>
-        </div>
-      </div>
-    </div>
-
-    <!-- تجربه کاری -->
-    <section class="mb-16">
-      <h2 class="text-3xl font-bold mb-6 text-purple-600 dark:text-purple-300">تجربه کاری</h2>
-      <div class="relative w-full overflow-x-auto">
-        <div class="flex space-x-8 space-x-reverse min-w-max py-4">
-          <div class="flex flex-col items-center text-center">
-            <div class="bg-white dark:bg-gray-700 p-4 rounded-full shadow-md mb-2">
-              <img src="University_of_Tehran_logo.svg.png" alt="Security Team Lead" class="w-12 h-12">
-            </div>
-            <h3 class="text-lg font-semibold">Security Team Lead</h3>
-            <p class="text-gray-600 dark:text-gray-400 text-sm">University of Tehran</p>
-          </div>
-          <div class="w-10 h-1 bg-purple-500 self-center"></div>
-          <div class="flex flex-col items-center text-center">
-            <div class="bg-white dark:bg-gray-700 p-4 rounded-full shadow-md mb-2">
-              <img src="University_of_Tehran_logo.svg.png" alt="Data Center Ops" class="w-12 h-12">
-            </div>
-            <h3 class="text-lg font-semibold">Data Center Ops Manager</h3>
-            <p class="text-gray-600 dark:text-gray-400 text-sm">University of Tehran</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- توضیح کلی درباره تجربه کاری -->
-    <section class="mb-16 bg-white dark:bg-gray-700 rounded-2xl shadow-xl p-8 hover:shadow-2xl transition-shadow">
-      <h2 class="text-3xl font-bold mb-4 text-purple-600 dark:text-purple-300">خلاصه‌ای از تجربیات کاری من</h2>
-      <p class="leading-relaxed text-gray-700 dark:text-gray-200">
-        شرکت <strong>سامانه هوشمند کاربردی سمیع دانشگاه تهران</strong> در زمینه ارائه خدمات زیرساختی، مدیریت سیستم‌ها و توسعه راهکارهای هوشمند فعالیت دارد. این شرکت در پروژه‌های کلان دولتی و سازمانی حضور مؤثری داشته و نقش کلیدی در پشتیبانی و بهینه‌سازی زیرساخت‌های فناوری اطلاعات ایفا می‌کند.
-        <br /><br />
-        برخی از پروژه‌های مهم این شرکت شامل موارد زیر است:
-        <br /><br />
-        <strong>پشتیبانی از زیرساخت‌های سیستمی (Systems Infrastructure Support – Part-time):</strong> شامل نگهداری، بهینه‌سازی و پشتیبانی از سیستم‌های فناوری اطلاعات در سازمان‌ها و نهادهای مختلف.
-        <br />
-        <strong>سامانه سجام (قوه قضاییه):</strong> سامانه‌ای یکپارچه برای جمع‌آوری، مدیریت و پردازش اطلاعات حقوقی، با هدف بهبود دسترسی به داده‌ها و تسهیل فرآیندهای قضایی.
-        <br />
-        <strong>بیتا (بستر تبادل یکپارچه اطلاعات – وزارت اقتصاد):</strong> پلتفرمی جامع برای تبادل و هماهنگی داده‌های اقتصادی بین نهادهای دولتی و خصوصی، با هدف افزایش شفافیت و کارایی مدیریت اقتصادی.
-        <br />
-        <strong>مدیریت سرویس‌های گمرک، باسکول و پلمپ:</strong> سامانه‌های هوشمند برای نظارت، مدیریت و پردازش اطلاعات مربوط به گمرک و حمل‌ونقل، به منظور افزایش امنیت و کاهش تخلفات.
-        <br />
-        <strong>ERPهای سازمان اقتصادی کوثر:</strong> سیستم‌های برنامه‌ریزی منابع سازمانی برای بهینه‌سازی فرآیندهای مالی، لجستیکی و مدیریتی در این مجموعه اقتصادی.
-        <br /><br />
-        این شرکت با تمرکز بر بهبود زیرساخت‌های فناوری اطلاعات، نقشی محوری در تحول دیجیتال و یکپارچه‌سازی داده‌ها در نهادهای دولتی و سازمان‌های بزرگ کشور ایفا می‌کند.
-      </p>
-    </section>
-
-    <!-- فوتر -->
-    <footer class="text-center text-gray-600 dark:text-gray-300 pt-8 border-t dark:border-gray-600">
-      <p class="mb-2">با من در تماس باشید 🌟</p>
-      <a href="mailto:your.email@example.com" class="text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-200 transition-colors">your.email@example.com</a>
-    </footer>
-  </div>
-
-  <script>
-    // رسم نمودار مهارت‌ها
-    const ctx = document.getElementById('skillsChart')?.getContext('2d');
-    if(ctx) {
-      new Chart(ctx, {
-        type: 'radar',
-        data: {
-          labels: ['Linux', 'DevOps', 'Security', 'JavaScript', 'infrastructure'],
-          datasets: [{
-            label: 'مهارت‌ها',
-            data: [60, 60, 50, 70, 60],
-            backgroundColor: 'rgba(168, 85, 247, 0.3)',
-            borderColor: 'rgba(168, 85, 247, 1)',
-            borderWidth: 2
-          }]
-        },
-        options: {
-          responsive: true,
-          plugins: { legend: { display: false } },
-          scales: { r: { ticks: { backdropColor: 'transparent', color: '#666' }, grid: { color: '#888' } } }
-        }
-      });
-    }
-
-    // پلیر مرکزی و کنترل لیست آهنگ‌ها
-    const playlistItems = document.querySelectorAll('.audio-wrapper');
-    const centralAudio = document.getElementById('centralAudio');
-    const playPauseButton = document.getElementById('playPauseButton');
-    const nextButton = document.getElementById('nextButton');
-
-    // آرایه‌ای از مسیرهای آهنگ از data-src هر آیتم
-    let currentTrackIndex = 0;
-    const tracks = Array.from(playlistItems).map(item => item.getAttribute('data-src'));
-
-    function updateActiveTrack() {
-      playlistItems.forEach((item, index) => {
-        if(index === currentTrackIndex) {
-          item.classList.add('active');
-        } else {
-          item.classList.remove('active');
-        }
-      });
-    }
-
-    function playTrack(index) {
-      if(index < 0 || index >= tracks.length) return;
-      currentTrackIndex = index;
-      centralAudio.src = tracks[currentTrackIndex];
-      centralAudio.play();
-      playPauseButton.innerHTML = '⏸️ توقف موزیک';
-      updateActiveTrack();
-    }
-
-    // وقتی روی یک آیتم از لیست کلیک می‌شود
-    playlistItems.forEach((item, index) => {
-      item.addEventListener('click', () => {
-        playTrack(index);
-      });
-    });
-
-    // کنترل دکمه پخش/توقف
-    playPauseButton.addEventListener('click', () => {
-      if(centralAudio.paused) {
-        centralAudio.play();
-        playPauseButton.innerHTML = '⏸️ توقف موزیک';
-      } else {
-        centralAudio.pause();
-        playPauseButton.innerHTML = '▶️ پخش موزیک';
-      }
-      updateActiveTrack();
-    });
-
-    // دکمه آهنگ بعدی
-    nextButton.addEventListener('click', () => {
-      let nextIndex = (currentTrackIndex + 1) % tracks.length;
-      playTrack(nextIndex);
-    });
-
-    // هنگامی که آهنگ به پایان رسید، آهنگ بعدی پخش شود
-    centralAudio.addEventListener('ended', () => {
-      let nextIndex = (currentTrackIndex + 1) % tracks.length;
-      playTrack(nextIndex);
-    });
-  </script>
-</body>
-</html>
