@@ -2,15 +2,22 @@
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>وبلاگ من</title>
-    <!-- Tailwind CDN -->
+    <title>Katin (Matin Kaboli)</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- فونت فارسی -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+        }
+    </style>
 </head>
-<body class="bg-gray-100 text-gray-900 leading-relaxed">
-    <header class="bg-white shadow p-4 mb-6">
+<body class="bg-gradient-to-b from-gray-900 to-black text-white min-h-screen flex flex-col">
+    <header class="backdrop-blur bg-white/5 border-b border-white/10 shadow-md p-6 mb-8">
         <div class="container mx-auto text-center">
-            <h1 class="text-3xl font-bold">وبلاگ شخصی من</h1>
-            <p class="text-gray-500">یادگیری PHP + Tailwind CSS 🚀</p>
+            <h1 class="text-4xl font-extrabold text-blue-400">Katin</h1>
+            <p class="text-gray-300 mt-2">وبلاگ شخصی Matin Kaboli | نوشته‌ها، کدها، یادگیری</p>
         </div>
     </header>
-    <main class="container mx-auto px-4">
+    <main class="container mx-auto px-4 flex-1">
