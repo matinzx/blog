@@ -15,6 +15,7 @@ include 'includes/header.php';
 ?>
 
 <article class="bg-white/10 backdrop-blur border border-white/10 p-8 rounded-3xl shadow-xl mx-auto max-w-3xl text-white">
+    <img src="<?= htmlspecialchars($post['image']) ?>" alt="تصویر پست" class="w-full h-72 object-cover rounded-xl mb-6">
     <h2 class="text-4xl font-extrabold mb-4 text-blue-400"><?= htmlspecialchars($post['title']) ?></h2>
     <p class="text-sm text-gray-400 mb-6">منتشر شده در: <?= $post['created_at'] ?></p>
     <div class="text-gray-200 leading-relaxed text-lg">
